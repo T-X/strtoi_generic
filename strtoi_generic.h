@@ -4,19 +4,8 @@
 /**
  * strtoi_(base_)generic() - convert a string to a generic integer
  *
- * Provides:
- *
- * 1) static inline
- *    int strtoi_generic(const char *str,
- *			 <integer-type> *res)
- *
- * 2) static inline
- *    int strtoi_base_generic(const char *str,
- *			      int base,
- *			      <integer-type> *res)
- *
  * The main goal of this is to provide more easy to use and safer versions
- * for string to integer conversions. With a cleaner separation of return
+ * for string to integer conversions in C. With a cleaner separation of return
  * values and error codes, without errno. In contrast to strto*() functions
  * these two function-look-alikes/macros here need less surrounding
  * wrapping/checks than strto*() functions. A single return value check is
@@ -29,29 +18,6 @@
  *
  * Needs a modern C compiler for the C23 typeof() feature and the C11 _Generic()
  * feature.
- *
- * Example usage:
- *
- *********************
- * #include <stdio.h>
- * #include "strtoi_generic.h"
- *
- * int main(int argc, char *argv[])
- * {
- * 	char mystr[] = "123456789";
- * 	long num; // un/signed char/short/int/long/long long/
- *                // (u)int{8/16/32/64}_t - whatever you want!
- * 	int ret;
- *
- * 	ret = strtoi_generic(mystr, &num);
- * 	if (ret < 0)
- * 		printf("Error: %i\n", ret);
- * 	else
- * 		printf("OK, got: %li\n", num);
- *
- * 	return 0;
- * }
- *********************
  */
 
 #ifndef __STRTOI_GENERIC_H__
