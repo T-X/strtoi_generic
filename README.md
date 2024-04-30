@@ -4,19 +4,19 @@
 
 ---
 
-```
+```C
 static inline
 int strtoi_generic(const char *str,
-                   <integer-type> *res)
+                   <integer-type> *res);
 ```
 
 ---
 
-```
+```C
 static inline
 int strtoi_base_generic(const char *str,
                         int base,
-                        <integer-type> *res)
+                        <integer-type> *res);
 ```
 
 ---
@@ -41,24 +41,24 @@ feature.
 Download the [strtoi_generic.h](strtoi_generic.h) and put it in the
 same directory as this example (or your code):
 
-```
+```C
 #include <stdio.h>
 #include "strtoi_generic.h"
 
 int main(int argc, char *argv[])
 {
-	char mystr[] = "123456789";
-	long num; // (un)signed char/short/int/long/long long/
-               // (u)int{8/16/32/64}_t - whatever you want!
-	int ret;
+    char mystr[] = "123456789";
+    long num;   // (un)signed char/short/int/long/long long/
+                // (u)int{8/16/32/64}_t - whatever you want!
+    int ret;
 
-	ret = strtoi_generic(mystr, &num);
-	if (ret < 0)
-		printf("Error: %i\n", ret);
-	else
-		printf("OK, got: %li\n", num);
+    ret = strtoi_generic(mystr, &num);
+    if (ret < 0)
+        printf("Error: %i\n", ret);
+    else
+        printf("OK, got: %li\n", num);
 
-	return 0;
+    return 0;
 }
 ```
 
